@@ -163,10 +163,10 @@ function Dashboard() {
 
             <p>
               <span className="text-2xl font-medium text-gray-900">
-                ${saleAmount}
+                ₹{saleAmount}
               </span>
 
-              <span className="text-xs text-gray-500"> from $240.94 </span>
+              <span className="text-xs text-gray-500"> from ₹240.94 </span>
             </p>
           </div>
         </article>
@@ -199,10 +199,10 @@ function Dashboard() {
             <p>
               <span className="text-2xl font-medium text-gray-900">
                 {" "}
-                ${purchaseAmount}{" "}
+                ₹{purchaseAmount}{" "}
               </span>
 
-              <span className="text-xs text-gray-500"> from $404.32 </span>
+              <span className="text-xs text-gray-500"> from ₹404.32 </span>
             </p>
           </div>
         </article>
@@ -237,7 +237,7 @@ function Dashboard() {
                 {products.length}{" "}
               </span>
 
-              {/* <span className="text-xs text-gray-500"> from $404.32 </span> */}
+              {/* <span className="text-xs text-gray-500"> from ₹404.32 </span> */}
             </p>
           </div>
         </article>
