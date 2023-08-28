@@ -1,0 +1,7 @@
+1> Open command Prompt
+
+2> (In command prompt)
+
+npm i
+
+npm start
