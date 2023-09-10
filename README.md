@@ -6,3 +6,8 @@ Following technologies are used here:-
 
 For running refer: .\STEPS.txt
 For backend refer:  https://github.com/jeetendraprasad/Pharma-Mgmt-Sys-BackEnd.git
+
+
+HINT:-
+npm i
+npm start
