@@ -9,5 +9,7 @@ For backend refer:  https://github.com/jeetendraprasad/Pharma-Mgmt-Sys-BackEnd.g
 
 
 HINT:-
+
 npm i
+
 npm start
