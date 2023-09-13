@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext";
 import constants from "../constants";
+import { toast } from "react-toastify";
 
 function Login() {
   const [form, setForm] = useState({
@@ -23,14 +24,14 @@ function Login() {
       fetch(constants.appUrl + "/api/login")
         .then((response) => response.json())
         .then((data) => {
-          alert("Successfully Login");
+          toast.success("Successfully Login");
           localStorage.setItem("user", JSON.stringify(data));
           authContext.signin(data._id, () => {
             navigate("/");
           });
         })
         .catch((err) => {
-          alert("Wrong credentials, Try again")
+          toast.error("Wrong credentials, Try again")
           console.log(err);
         });
     }, 3000);
@@ -39,7 +40,7 @@ function Login() {
   const loginUser = (e) => {
     // Cannot send empty data
     if (form.email === "" || form.password === "") {
-      alert("To login user, enter details to proceed...");
+      toast.warn("To login user, enter details to proceed...");
     } else {
       fetch(constants.appUrl + "/api/login", {
         method: "POST",

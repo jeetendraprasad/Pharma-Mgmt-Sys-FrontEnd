@@ -13,6 +13,9 @@ import { useEffect, useState } from "react";
 import Store from "./pages/Store";
 import Sales from "./pages/Sales";
 import PurchaseDetails from "./pages/PurchaseDetails";
+import { ToastContainer } from "react-toastify";
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [user, setUser] = useState("");
@@ -59,27 +62,41 @@ const App = () => {
 
   return (
     <AuthContext.Provider value={value}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/"
-            element={
-              <ProtectedWrapper>
-                <Layout />
-              </ProtectedWrapper>
-            }
-          >
-            <Route index element={<Dashboard />} />
-            <Route path="/inventory" element={<Inventory />} />
-            <Route path="/purchase-details" element={<PurchaseDetails />} />
-            <Route path="/sales" element={<Sales />} />
-            <Route path="/manage-store" element={<Store />} />
-          </Route>
-          <Route path="*" element={<NoPageFound />} />
-        </Routes>
-      </BrowserRouter>
+      <div className="container-fluid p-0">
+        <ToastContainer
+          position="top-right"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+        />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/"
+              element={
+                <ProtectedWrapper>
+                  <Layout />
+                </ProtectedWrapper>
+              }
+            >
+              <Route index element={<Dashboard />} />
+              <Route path="/inventory" element={<Inventory />} />
+              <Route path="/purchase-details" element={<PurchaseDetails />} />
+              <Route path="/sales" element={<Sales />} />
+              <Route path="/manage-store" element={<Store />} />
+            </Route>
+            <Route path="*" element={<NoPageFound />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </AuthContext.Provider>
   );
 };

@@ -2,6 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import constants from "../constants";
+import { toast } from "react-toastify";
 
 export default function AddSale({
   addSaleModalSetting,
@@ -37,7 +38,7 @@ export default function AddSale({
       body: JSON.stringify(sale),
     })
       .then((result) => {
-        alert("Sale ADDED");
+        toast.success("Sale ADDED");
         handlePageUpdate();
         addSaleModalSetting();
       })

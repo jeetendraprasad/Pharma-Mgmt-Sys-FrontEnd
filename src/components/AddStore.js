@@ -4,6 +4,7 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import UploadImage from "./UploadImage";
 import AuthContext from "../AuthContext";
 import constants from "../constants";
+import { toast } from "react-toastify";
 
 export default function AddStore() {
   const authContext = useContext(AuthContext);
@@ -32,7 +33,7 @@ export default function AddStore() {
       body: JSON.stringify(form),
     })
       .then((result) => {
-        alert("STORE ADDED");
+        toast.success("STORE ADDED");
         setOpen(false);
       })
       .catch((err) => console.log(err));
@@ -51,7 +52,7 @@ export default function AddStore() {
       .then((res) => res.json())
       .then((data) => {
         setForm({ ...form, image: data.url });
-        alert("Store Image Successfully Uploaded");
+        toast.success("Store Image Successfully Uploaded");
       })
       .catch((error) => console.log(error));
   };

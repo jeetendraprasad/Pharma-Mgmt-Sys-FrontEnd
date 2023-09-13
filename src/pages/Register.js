@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UploadImage from "../components/UploadImage";
 import constants from "../constants";
+import {toast} from 'react-toastify';
+import './../App.css'
 
 function Register() {
   const [form, setForm] = useState({
@@ -22,6 +24,21 @@ function Register() {
 
   // Register User
   const registerUser = () => {
+
+    if(!form.firstName){
+      toast.warn('Firstname is mandatory.');
+      return;
+    }else if(!form.lastName){
+      toast.warn('Lastname is mandatory.');
+      return;
+    }else if(!form.email){
+      toast.warn('Email is mandatory.');
+      return;
+    }else if(!form.password){
+      toast.warn('Password is mandatory.');
+      return;
+    }
+    
     fetch(constants.appUrl + "/api/register", {
       method: "POST",
       headers: {
@@ -30,7 +47,7 @@ function Register() {
       body: JSON.stringify(form),
     })
       .then((result) => {
-        alert("Successfully Registered, Now Login with your details");
+        toast.success("Successfully Registered, Now Login with your details");
         navigate('/login')
         
       })
@@ -51,7 +68,7 @@ function Register() {
       .then((res) => res.json())
       .then((data) => {
         setForm({ ...form, imageUrl: data.url });
-        alert("Image Successfully Uploaded");
+        toast.success("Image Successfully Uploaded");
       })
       .catch((error) => console.log(error));
   };
