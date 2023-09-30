@@ -38,7 +38,7 @@ export default function Header() {
                           alt="Inventory Management System"
                         />
                         <span className="font-bold text-white italic">
-                          Pharmacy Management v7
+                          Pharmacy Management v8
                         </span>
                       </div>
                     </div>
